@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding:0;
+  }  
+
+  body {
+      background: black;
+      margin-top: 10px;
+  }
+  h1 {
+    margin: 0;
+    padding:0;
+  }
+  a {
+    margin: 0;
+    padding:0;
+    text-decoration: none;
+          
+  }
+  a:hover {
+    margin: 0;
+    padding:0;
+    text-decoration: none;
+    
+  }
+  a:active {
+    color: yellow;
+    background-color: transparent;
+
+  }
+  .LCARS_Bottom_Line {
+      border-radius: 0px 25px 25px 25px;
+      background: purple;
+      color: black;
+  }
+
+  .LCARS_Top_Line {
+      border-radius: 25pt 25pt 25pt 0pt;
+      background: purple;
+      color: black;
+  }
+
+
+  .LCARS_Middle_Top_Line {
+    border-radius: 25pt 0pt 25pt 25pt;
+    background: purple;
+    color: black;
+    }
+
+    .LCARS_Middle_Bottom_Line {
+        border-radius: 25pt 25pt 0pt 25pt;
+        background: purple;
+        color: black;
+    } 
+
+  .LCARS_Side_Panel {
+  background: purple;
+  color: purple;
+  line-height: 26px;
+  }
+
+  .LCARS_Lower_Side_Panel {
+      background: purple;
+      color: black;
+  }
+  .LCARS_Message_Panel {
+    border-radius: 25pt 0pt 25pt 25pt;
+    background: purple;
+    color: black;
+  }
+  .LCARS_Message_Authors_Panel {
+    border-radius: 0pt 25pt 25pt 0pt;
+    background: purple;
+    color: black;
+  }
+
+  .LCARS_Contact_Top_Line {
+    border-radius: 25px 25px 0px 25px;
+    background: purple;
+    color: black;
+  }
+
+  .LCARS_Contact_Bottom_Line {
+    border-radius: 25px 0px 25px 25px;
+    background: purple;
+    color: black;
+  }
+
+  .Main_Display {
+      background-position: center;
+      background-image: url("images/StarryBackground.png");
+  }
+
+  .btn-sttng-left-cap {
+    background: yellow;
+    color: black;
+    border-radius: 25pt 0pt 0pt 25pt;
+  }
+  .btn-sttng-text-display {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+    border-radius: 0pt 0pt 0pt 0pt;
+    
+  }
+  .btn-sttng-text-display:hover {
+    background: yellow;
+    color: black;
+    border-radius: 0pt 0pt 0pt 0pt;
+    
+  }
+  .btn-sttng-right-trailer {
+    background: yellow;
+    color: black;
+    border-radius: 0pt 0pt 0pt 0pt;
+    width: 300px;
+    }
+  .sttng-right-cap {
+    background: yellow;
+    color: black;
+    border-radius: 0pt 25pt 25pt 0pt;
+    margin-bottom: 2px;
+    
+  }
+  .sttng-right-leader {
+    background: yellow;
+    color: black;
+    border-radius: 0pt 0pt 0pt 0pt;
+    margin-bottom: 2px;
+  }
+
+  .adiv:hover {
+    background: yellow;
+    color: black;
+    margin-bottom: 2px;
+  }
+
+  
+  a:visited {
+    background: black;
+    color: blue;
+    text-decoration: none;
+    cursor: auto;
+}
+
+textarea {
+    background: black;
+    color: yellow;
+    width: 100%;
+    height: 90%;
+    resize: none;
+}
+.home_page_text {
+  background: black;
+    color: yellow;
+       
+}
+
+.ES3DSSV_Story {
+    background: black;
+    color: yellow;
+}
+
+.LCARS_Complete_Line {
+    border-radius: 25pt 25pt 25pt 25pt;
+      background: purple;
+      color: black;
+}
+
+.Product_Service_Request_link{
+  border-radius: 25pt 25pt 25pt 25pt; 
+  padding: 10px;
+  margin: 10px;
+  background: purple;
+  color: black;
+}
+
+.Product_Service_Request_link:visited{
+    border-radius: 25pt 25pt 25pt 25pt; 
+    padding: 10px; 
+    margin: 10px;
+    background: blue;
+    color: black;
+  }
+
+  .Product_Service_Request_link:hover{
+    border-radius: 25pt 25pt 25pt 25pt; 
+    padding: 10px; 
+    margin: 10px;
+    background: yellow;
+    color: black;
+  }
+
+  .LCARS_Message_Board_Bottom_Line {
+    border-radius: 0px 25px 25px 25px;
+    background: purple;
+    color: black;
+  }
+
+  .LCARS_Message_Authors_Side_Panel {
+    border-radius: 25pt 0pt 0pt 0pt;
+    background: purple;
+    color: black;
+  }
+
+  .LCARS_Message_Authors_Lower_Side_Panel {
+    border-radius: 0pt 0pt 25pt 25pt;
+    background: purple;
+    color: purple;
+  }
