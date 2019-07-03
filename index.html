@@ -3,7 +3,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no,user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes, user-scalable=yes">
     <meta name="author" content="Jacutus0fB0rg">
 
     <!-- Bootstrap CSS -->
@@ -248,7 +248,7 @@
             </header>        
               
     <main>
-            
+      <h5 class="text-white text-center" id="screenwidthDisplay"></h5>  
         <div class="row">
             <div class="col-12 LCARS_Top_Line mt-1">
                 <p>345</p>
@@ -324,6 +324,10 @@
     <script  type="text/javascript">
       console.log('Javascript is working!')
 
+      const screenwidthDisplay = document.getElementById('screenwidthDisplay')
+      console.log(`screenwidth is ${screen.width}`)
+      const screenwidth = screen.width
+      screenwidthDisplay.innerHTML = 'SCREEN WIDTH IS ' + screenwidth.toString()
       
       function borgShipAnimation() {
         //let width = 181
