@@ -10,7 +10,60 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
 
-   <link rel="stylesheet" href="sj25_styles.css">  
+   <link rel="stylesheet" href="sj25_styles.css"> 
+   
+   <style>
+    /*Extra small devices (portrait phones, less than 576px)*/
+      /*No media query for `xs` since this is the default in Bootstrap*/
+
+      /*Small (-sm-) devices (landscape phones, 576px and up)*/
+      .LCARS_Bottom_Line {
+            border-radius: 25px 25px 25px 25px;
+            background: purple;
+            color: black;
+        }
+        
+      /*576px*/
+      @media (min-width: 576px) {
+        .LCARS_Bottom_Line {
+              border-radius: 25px 25px 25px 25px;
+              background: purple;
+              color: black;
+          }
+          
+      }
+      /*Medium (-md-) devices (tablets, 768px and up)*/
+      
+      @media (min-width: 768px) {
+        .LCARS_Bottom_Line {
+              border-radius: 0px 25px 25px 25px;
+              background: purple;
+              color: purple;
+          }
+          
+      }
+      /*Large (-lg-) devices (desktops, 992px and up)*/
+      
+      @media (min-width: 992px) {
+        .LCARS_Bottom_Line {
+              border-radius: 0px 25px 25px 25px;
+              background: purple;
+              color: purple;
+          }
+          
+      }
+      /*Extra large (-xl-) devices (large desktops, 1200px and up)*/
+      
+      @media (min-width: 1200px) {
+        .LCARS_Bottom_Line {
+              border-radius: 0px 25px 25px 25px;
+              background: purple;
+              color: purple;
+          }
+          
+      }
+               
+    </style>
 
     <title>SystemJ25 3D Printing Page</title>
   </head>
@@ -21,19 +74,19 @@
             <header>
                  
                 <div class="row"> <!--row 1-->
-                    <div class="col-2 LCARS_Side_Panel">
+                    <div class="d-none d-sm-none d-md-block col-2 LCARS_Side_Panel">
                         <p>012</p>
                     </div>
                    
                     <div class="col-1"></div>
 
-                    <div class="col-1 btn-sttng-left-cap text-center justify-content-right">
+                    <div class="col-1 btn-sttng-left-cap text-center justify-content-right mb-1">
                       <p>7</p>
                     <!--
                       <button type="button" class="btn btn-sttng-left-cap btn-lg btn-block">7</button>
                     -->
                     </div>
-                    <div class="col-5 btn-sttng-text-display justify-content-right">
+                    <div class="col-5 btn-sttng-text-display justify-content-right mb-1">
 
                       <h1 class="display-5 text-center">3D PRINTING</h1>
                       <!--
@@ -44,103 +97,103 @@
                       <button type="button" class="btn btn-sttng-text-display btn-sm btn-block">8</button>
                       -->  
                     </div>
-                    <div class="col-3 btn-sttng-right-trailer text-center justify-content-right">
-                      <p>9</p>
+                    <div class="d-none d-sm-block col-sm-2 col-md-3 col-lg-3 btn-sttng-right-trailer text-center justify-content-right mb-1">
+                        <p>9</p>
                     </div>
                     </div>
-               <nav>     
-                    <div class="row"> <!--row 2-->
-                        <div class="col-2 LCARS_Side_Panel">
-                        <p>012</p>
+                    <nav>     
+                        <div class="row"> <!--row 2-->
+                            <div class="d-none d-sm-none d-md-block col-2 LCARS_Side_Panel">
+                            <p>012</p>
+                            </div>
+    
+                            <div class="col-10">
+    
+                            </div>
+                        </div> <!--end of row 2-->
+                               
+                        <div class="row h-25">
+                            <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
+                                <!--<p class="h-25">LCARS</p>-->
+                            </div>
+                            <div class="col-1 sttng-right-leader text-center justify-content-left">1
+                            </div>
+                            
+                             <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                            <a class=" btn-sttng-text-display justify-content-center" href="index.html">HOME</a>
+                             </div>
+                            
+                            <div class="col-1 sttng-right-cap text-center justify-content-left">1
+                            </div>
+                            <div class="col-1 col-md-2">
+                                <!--<p class="h-25">LCARS</p>-->
+                            </div>
+                            <div class="col-1 sttng-right-leader text-center justify-content-left">5
+                            </div>
+                            
+                             <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                            <a class=" btn-sttng-text-display justify-content-center" href="sj25_contact.html">CONTACT</a>
+                             </div>
+                            
+                            <div class="col-1 sttng-right-cap text-center justify-content-left">5
+                            </div>
                         </div>
-
-                        <div class="col-10">
-
-                        </div>
-                    </div> <!--end of row 2-->
-                           
-                    <div class="row h-25">
-                        <div class="col-2 LCARS_Side_Panel">012
-                            <!--<p class="h-25">LCARS</p>-->
-                        </div>
-                        <div class="col-1 sttng-right-leader text-center justify-content-left">1
-                        </div>
-                        
-                         <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class=" btn-sttng-text-display justify-content-center" href="index.html">HOME</a>
-                         </div>
-                        
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">1
-                        </div>
-                        <div class="col-1 col-md-2">
-                            <!--<p class="h-25">LCARS</p>-->
-                        </div>
-                        <div class="col-1 sttng-right-leader text-center justify-content-left">5
-                        </div>
-                        
-                         <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class=" btn-sttng-text-display justify-content-center" href="sj25_contact.html">CONTACT</a>
-                         </div>
-                        
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">5
-                        </div>
-                    </div>
-
-                    <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">LCARS
-                          <!--<p class="h-25">LCARS</p>-->
+    
+                        <div class="row h-25">
+                          <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
+                              <!--<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">2
+                          </div>
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class="btn-sttng-text-display justify-content-center" href="sj25_3dprinting.html">3D PRINTING</a>
+                          </div>
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">2
+                          </div>
+                          <div class="col-1 col-md-2">
+                              <!--<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">6
+                            </div>
+                            <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                            <a class="btn-sttng-text-display justify-content-center" href="sj25_messageboard.html">MESSAGE BOARD</a>
+                            </div>
+                            <div class="col-1 sttng-right-cap text-center justify-content-left">6
+                            </div>
                       </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">2
+    
+                      <div class="row h-25">
+                          <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
+                              <!--col-md-8<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">3
+                          </div>
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class="btn-sttng-text-display" href="sj25_3danimation.html">3D ANIMATION</a>
+                          </div>
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">3
+                          </div>
+                          
                       </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display justify-content-center" href="sj25_3dprinting.html">3D PRINTING</a>
+    
+                      <div class="row h-25">
+                          <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">LCARS
+                              <!--<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">4
+                          </div>
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class="btn-sttng-text-display" href="sj25_arbusinesscards.html">AR BUSINESS CARDS</a>
+                          </div>
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">4
+                          </div>
                       </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">2
-                      </div>
-                      <div class="col-1 col-md-2">
-                          <!--<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">6
-                        </div>
-                        <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class="btn-sttng-text-display justify-content-center" href="sj25_messageboard.html">MESSAGE BOARD</a>
-                        </div>
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">6
-                        </div>
-                  </div>
-
-                  <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">LCARS
-                          <!--col-md-8<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">3
-                      </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display" href="sj25_3danimation.html">3D ANIMATION</a>
-                      </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">3
-                      </div>
-                      
-                  </div>
-
-                  <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">LCARS
-                          <!--<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">4
-                      </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display" href="sj25_arbusinesscards.html">AR BUSINESS CARDS</a>
-                      </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">4
-                      </div>
-                  </div>
-                    <div class="row"> <!--row 3-->  
-                      <div class="col-12 LCARS_Bottom_Line">
-                        <p>012</p>
-                      </div>
-                    </div> <!--end of row 3-->
-                  </nav>  
+                        <div class="row"> <!--row 3-->  
+                          <div class="col-12 LCARS_Bottom_Line">
+                            <p>012</p>
+                          </div>
+                        </div> <!--end of row 3-->
+                      </nav>   
                         
             </header>        
               

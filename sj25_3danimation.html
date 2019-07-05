@@ -11,6 +11,138 @@
 
    <link rel="stylesheet" href="sj25_styles.css">  
 
+   <style>
+      /*Extra small devices (portrait phones, less than 576px)*/
+        /*No media query for `xs` since this is the default in Bootstrap*/
+
+        /*Small (-sm-) devices (landscape phones, 576px and up)*/
+        .LCARS_Bottom_Line {
+              border-radius: 25px 25px 25px 25px;
+              background: purple;
+              color: black;
+          }
+
+          .LCARS_Top_Line {
+              border-radius: 25pt 25pt 25pt 25pt;
+              background: purple;
+              color: black;
+          }
+          .LCARS_Middle_Top_Line {
+            border-radius: 25pt 25pt 25pt 25pt;
+            background: purple;
+            color: black;
+          }  
+          .LCARS_Middle_Bottom_Line {
+            border-radius: 25pt 25pt 25pt 25pt;
+            background: purple;
+            color: black;
+          }
+        /*576px*/
+        @media (min-width: 576px) {
+          .LCARS_Bottom_Line {
+                border-radius: 25px 25px 25px 25px;
+                background: purple;
+                color: black;
+            }
+
+            .LCARS_Top_Line {
+                border-radius: 25pt 25pt 25pt 25pt;
+                background: purple;
+                color: black;
+            }
+            
+           .LCARS_Middle_Top_Line {
+            border-radius: 25pt 25pt 25pt 25pt;
+                background: purple;
+                color: black;
+          }
+          .LCARS_Middle_Bottom_Line {
+            border-radius: 25pt 25pt 25pt 25pt;
+            background: purple;
+            color: black;
+          }
+        }  
+        /*Medium (-md-) devices (tablets, 768px and up)*/
+        
+        @media (min-width: 768px) {
+          .LCARS_Bottom_Line {
+           
+                border-radius: 0px 25px 25px 25px;
+                background: purple;
+                color: purple;
+            }
+
+            .LCARS_Top_Line {
+                border-radius: 25pt 25pt 25pt 0pt;
+                background: purple;
+                color: purple;
+            }
+            .LCARS_Middle_Top_Line {
+              border-radius: 25pt 0pt 25pt 25pt;
+              background: purple;
+              color: black;
+            }
+            .LCARS_Middle_Bottom_Line {
+        border-radius: 25pt 25pt 0pt 25pt;
+        background: purple;
+        color: black;
+    } 
+        }
+        /*Large (-lg-) devices (desktops, 992px and up)*/
+        
+        @media (min-width: 992px) {
+          
+          .LCARS_Bottom_Line {
+                border-radius: 0px 25px 25px 25px;
+                background: purple;
+                color: purple;
+            }
+
+            .LCARS_Top_Line {
+                border-radius: 25pt 25pt 25pt 0pt;
+                background: purple;
+                color: purple;
+            }
+            .LCARS_Middle_Top_Line {
+              border-radius: 25pt 0pt 25pt 25pt;
+              background: purple;
+              color: black;
+            }
+            .LCARS_Middle_Bottom_Line {
+        border-radius: 25pt 25pt 0pt 25pt;
+        background: purple;
+        color: black;
+    } 
+        }
+        /*Extra large (-xl-) devices (large desktops, 1200px and up)*/
+        
+        @media (min-width: 1200px) {
+          
+          .LCARS_Bottom_Line {
+                border-radius: 0px 25px 25px 25px;
+                background: purple;
+                color: purple;
+            }
+
+            .LCARS_Top_Line {
+                border-radius: 25pt 25pt 25pt 0pt;
+                background: purple;
+                color: purple;
+            }
+            .LCARS_Middle_Top_Line {
+              border-radius: 25pt 0pt 25pt 25pt;
+              background: purple;
+              color: black;
+            }
+            .LCARS_Middle_Bottom_Line {
+        border-radius: 25pt 25pt 0pt 25pt;
+        background: purple;
+        color: black;
+    } 
+        }
+                              
+      </style> 
+
     <title>SystemJ25 3D Animation Page</title>
   </head>
   <body>
@@ -19,20 +151,20 @@
       
             <header>
                  
-                <div class="row"> <!--row 1-->
-                    <div class="col-2 LCARS_Side_Panel">
-                        <p>012</p>
-                    </div>
-                   
-                    <div class="col-1"></div>
+              <div class="row"> <!--row 1-->
+                <div class="d-none d-sm-none d-md-block col-2 LCARS_Side_Panel">
+                    <p>012</p>
+                </div>
+               
+                <div class="col-1"></div>
 
-                    <div class="col-1 btn-sttng-left-cap text-center justify-content-right">
-                      <p>7</p>
-                    <!--
-                      <button type="button" class="btn btn-sttng-left-cap btn-lg btn-block">7</button>
-                    -->
-                    </div>
-                    <div class="col-5 btn-sttng-text-display justify-content-right">
+                <div class="col-1 btn-sttng-left-cap text-center justify-content-right mb-1">
+                  <p>7</p>
+                <!--
+                  <button type="button" class="btn btn-sttng-left-cap btn-lg btn-block">7</button>
+                -->
+                </div>
+                    <div class="col-5 btn-sttng-text-display justify-content-right mb-1">
 
                       <h1 class="display-5 text-center">3D ANIMATION</h1>
                       <!--
@@ -43,103 +175,103 @@
                       <button type="button" class="btn btn-sttng-text-display btn-sm btn-block">8</button>
                       -->  
                     </div>
-                    <div class="col-3 btn-sttng-right-trailer text-center justify-content-right">
+                    <div class="d-none d-sm-block col-sm-2 col-md-3 col-lg-3 btn-sttng-right-trailer text-center justify-content-right mb-1">
                       <p>9</p>
+                  </div>
                     </div>
-                    </div>
-               <nav>     
-                    <div class="row"> <!--row 2-->
-                        <div class="col-2 LCARS_Side_Panel">
-                        <p>012</p>
-                        </div>
-
-                        <div class="col-10">
-
-                        </div>
-                    </div> <!--end of row 2-->
-                           
-                    <div class="row h-25">
-                        <div class="col-2 LCARS_Side_Panel">012
+                    <nav>     
+                      <div class="row"> <!--row 2-->
+                          <div class="d-none d-sm-none d-md-block col-2 LCARS_Side_Panel">
+                          <p>012</p>
+                          </div>
+  
+                          <div class="col-10">
+  
+                          </div>
+                      </div> <!--end of row 2-->
+                             
+                      <div class="row h-25">
+                          <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
+                              <!--<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">1
+                          </div>
+                          
+                           <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class=" btn-sttng-text-display justify-content-center" href="index.html">HOME</a>
+                           </div>
+                          
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">1
+                          </div>
+                          <div class="col-1 col-md-2">
+                              <!--<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">5
+                          </div>
+                          
+                           <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class=" btn-sttng-text-display justify-content-center" href="sj25_contact.html">CONTACT</a>
+                           </div>
+                          
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">5
+                          </div>
+                      </div>
+  
+                      <div class="row h-25">
+                        <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
                             <!--<p class="h-25">LCARS</p>-->
                         </div>
-                        <div class="col-1 sttng-right-leader text-center justify-content-left">1
+                        <div class="col-1 sttng-right-leader text-center justify-content-left">2
                         </div>
-                        
-                         <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class=" btn-sttng-text-display justify-content-center" href="index.html">HOME</a>
-                         </div>
-                        
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">1
+                        <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                        <a class="btn-sttng-text-display justify-content-center" href="sj25_3dprinting.html">3D PRINTING</a>
+                        </div>
+                        <div class="col-1 sttng-right-cap text-center justify-content-left">2
                         </div>
                         <div class="col-1 col-md-2">
                             <!--<p class="h-25">LCARS</p>-->
                         </div>
-                        <div class="col-1 sttng-right-leader text-center justify-content-left">5
+                        <div class="col-1 sttng-right-leader text-center justify-content-left">6
+                          </div>
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class="btn-sttng-text-display justify-content-center" href="sj25_messageboard.html">MESSAGE BOARD</a>
+                          </div>
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">6
+                          </div>
+                    </div>
+  
+                    <div class="row h-25">
+                        <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
+                            <!--col-md-8<p class="h-25">LCARS</p>-->
+                        </div>
+                        <div class="col-1 sttng-right-leader text-center justify-content-left">3
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                        <a class="btn-sttng-text-display" href="sj25_3danimation.html">3D ANIMATION</a>
+                        </div>
+                        <div class="col-1 sttng-right-cap text-center justify-content-left">3
                         </div>
                         
-                         <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class=" btn-sttng-text-display justify-content-center" href="sj25_contact.html">CONTACT</a>
-                         </div>
-                        
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">5
+                    </div>
+  
+                    <div class="row h-25">
+                        <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">LCARS
+                            <!--<p class="h-25">LCARS</p>-->
+                        </div>
+                        <div class="col-1 sttng-right-leader text-center justify-content-left">4
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                        <a class="btn-sttng-text-display" href="sj25_arbusinesscards.html">AR BUSINESS CARDS</a>
+                        </div>
+                        <div class="col-1 sttng-right-cap text-center justify-content-left">4
                         </div>
                     </div>
-
-                    <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">LCARS
-                          <!--<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">2
-                      </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display justify-content-center" href="sj25_3dprinting.html">3D PRINTING</a>
-                      </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">2
-                      </div>
-                      <div class="col-1 col-md-2">
-                          <!--<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">6
+                      <div class="row"> <!--row 3-->  
+                        <div class="col-12 LCARS_Bottom_Line">
+                          <p>012</p>
                         </div>
-                        <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class="btn-sttng-text-display justify-content-center" href="sj25_messageboard.html">MESSAGE BOARD</a>
-                        </div>
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">6
-                        </div>
-                  </div>
-
-                  <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">LCARS
-                          <!--col-md-8<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">3
-                      </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display" href="sj25_3danimation.html">3D ANIMATION</a>
-                      </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">3
-                      </div>
-                      
-                  </div>
-
-                  <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">LCARS
-                          <!--<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">4
-                      </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display" href="sj25_arbusinesscards.html">AR BUSINESS CARDS</a>
-                      </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">4
-                      </div>
-                  </div>
-                    <div class="row"> <!--row 3-->  
-                      <div class="col-12 LCARS_Bottom_Line">
-                        <p>012</p>
-                      </div>
-                    </div> <!--end of row 3-->
-                  </nav>  
+                      </div> <!--end of row 3-->
+                    </nav>   
                         
             </header>        
               
@@ -155,14 +287,56 @@
         </div>    
 
         <div class="row">
-            <div class="col-4 ">
-                <h6 class="text-white">THE STORY BEHIND THE VIDEO:</h6>
-                <textarea readonly>I like to 3D print models of spaceships from Star Trek and Star Wars.  Until recently, I had gotten the models to print from Thingiverse.  I had bought the Star Trek Technical Manual (for the original series) about 40 some years ago.  I still have it and I was looking through it and I came across top-view, side view and front view drawings of the Class I Destroyer as well as for Starfleet Headquarters.  I wanted to improve my modeling ability to perhaps make models to sell on the CGTrader website so I watched numerous YouTube modeling tutorials and started modeling the Destroyer. After about 2-3 weeks, I got the model of the Destroyer to where I could 3D print it and I did.  But after modeling it, I decided I also wanted to animate it in a video.  So I went back to watching more numerous YouTube videos and after a week or two I made the Destroyer video.  I made the models and the video with Blender and added the music and voiceover with VideoPad Video Editor (as well as deepening my voice).  I would have liked to have made an entire animated episode of the original series but now I'm working on learning Web Development.  I would also have liked to have used the Destroyer model in VR and AR.</textarea>
+            <div class="col-12 col-sm-12 col-md-4 mt-1">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseC1DStory">
+                    CLICK HERE TO SEE THE STORY BEHIND THE VIDEO:
+                </button>
+
+                <!--<h6 class="text-white">THE STORY BEHIND THE VIDEO:</h6>-->
+
+                <div class="collapse" id="collapseC1DStory">
+                    <div class="card card-body home_page_text">
+                <!--<textarea readonly>-->
+
+                  I like to 3D print models of spaceships from Star Trek
+                   and Star Wars.  Until recently, I had gotten the models
+                    to print from Thingiverse.  I had bought the Star Trek
+                     Technical Manual (for the original series) about 40
+                      some years ago.  I still have it and I was looking
+                       through it and I came across top-view, side view and
+                        front view drawings of the Class I Destroyer as well
+                         as for Starfleet Headquarters.  I wanted to improve
+                          my modeling ability to perhaps make models to sell
+                           on the CGTrader website so I watched numerous
+                            YouTube modeling tutorials and started modeling
+                             the Destroyer. After about 2-3 weeks, I got the
+                              model of the Destroyer to where I could 3D
+                               print it and I did.  But after modeling it, I
+                                decided I also wanted to animate it in a
+                                 video.  So I went back to watching more
+                                  numerous YouTube videos and after a week
+                                   or two I made the Destroyer video.  I
+                                    made the models and the video with
+                                     Blender and added the music and
+                                      voiceover with VideoPad Video Editor
+                                       (as well as deepening my voice).
+                                         I would have liked to have made an
+                                          entire animated episode of the
+                                           original series but now I'm
+                                            working on learning Web
+                                             Development.  I would also have
+                                              liked to have used the
+                                               Destroyer model in VR and AR.
+
+                                             <!-- </textarea> -->
+                        </div>
+                      </div>  
+
             </div>
-            <div class="col-1 LCARS_Lower_Side_Panel">
+            <div class="d-none d-sm-none d-md-block col-1 LCARS_Lower_Side_Panel">
                <p>678</p>
             </div>
-            <div class="col-7 mt-2"> <!--width="600" height="300"-->
+            <div class="col-12 col-sm-12 col-md-7 mt-2"> <!--width="600" height="300"-->
                <video controls class="col-12" >
                  <source src="videos/C1D Animation with music.mp4" type="video/mp4">
                </video>
@@ -188,16 +362,30 @@
                 </div>
         </div>
         <div class="row">
-                <div class="col-4 text-white">
+                <div class="col-12 col-sm-12 col-md-4 text-white">
                    EINSTEIN SCHOOL 3D SELFIE SCAN VIDEO
-                   <p class="text-white">THE STORY BEHIND THE VIDEO:</p>
-
-                   <p class="ES3DSSV_Story">As a member of the non-profit organization New Technology Made Simple Now, I was asked to run a 3D Selfie Scan Booth at the Amazing Give (a fundraiser for the Einstein School).  We did 32 3D Selfie Scans in 3 1/2 hours on March 21, 2018.  I was then asked to make a video featuring all 32 3D Selfie Scans.  I used Unity and screen-captured the video with Debut Video Capture Software and added the music with VideoPad Video Editor.</p>
+                   <!--<p class="text-white">THE STORY BEHIND THE VIDEO:</p>-->
+                   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEinsteinStory">
+                      CLICK HERE TO SEE THE STORY BEHIND THE VIDEO:
+                  </button>
+                  <!-- <p class="ES3DSSV_Story">-->
+                      <div class="collapse" id="collapseEinsteinStory">
+                          <div class="card card-body home_page_text">
+                     As a member of the non-profit organization New Technology Made
+                      Simple Now, I was asked to run a 3D Selfie Scan Booth at the
+                       Amazing Give (a fundraiser for the Einstein School).  We did 32 3D
+                        Selfie Scans in 3 1/2 hours on March 21, 2018.  I was then asked to
+                         make a video featuring all 32 3D Selfie Scans.  I used Unity and
+                          screen-captured the video with Debut Video Capture Software and
+                           added the music with VideoPad Video Editor.
+                            </div>
+                        </div>    
+                         <!-- </p>-->
                 </div>
-                <div class="col-1 LCARS_Lower_Side_Panel">
+                <div class="d-none d-sm-none d-md-block col-1 LCARS_Lower_Side_Panel">
                    <p>567</p>
                 </div>
-                <div class="col-7 mt-2"> <!--width="600" height="300"-->
+                <div class="col-12 col-sm-12 col-md-7 mt-2"> <!--width="600" height="300"-->
                         <video controls class="col-12" >
                                 <source src="videos/EinsteinSchool3DScanVideo24fps2.mp4" type="video/mp4">
                             </video>
@@ -205,10 +393,14 @@
                 
             </div> 
             <div class="row">
-                    <div class="col-4">
-                        <p class="text-white">If you would like me to make you 3D animated video, please fill out a product request on the <a href="sj25_contact.html">Contact page</a>.</p> 
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <p class="text-white">
+                          If you would like me to make you 3D animated video,
+                           please fill out a product request on the
+                            <a href="sj25_contact.html">Contact page</a>.
+                          </p> 
                     </div>
-                    <div class="col-8 LCARS_Bottom_Line mb-1">
+                    <div class="col-12 col-sm-12 col-md-8 LCARS_Bottom_Line mb-1">
                         <p>890</p>
                     </div>
                 </div>    

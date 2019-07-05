@@ -12,6 +12,59 @@
 
    <link rel="stylesheet" href="sj25_styles.css">  
 
+   <style>
+    /*Extra small devices (portrait phones, less than 576px)*/
+      /*No media query for `xs` since this is the default in Bootstrap*/
+
+      /*Small (-sm-) devices (landscape phones, 576px and up)*/
+      .LCARS_Bottom_Line {
+            border-radius: 25px 25px 25px 25px;
+            background: purple;
+            color: black;
+        }
+        
+      /*576px*/
+      @media (min-width: 576px) {
+        .LCARS_Bottom_Line {
+              border-radius: 25px 25px 25px 25px;
+              background: purple;
+              color: black;
+          }
+          
+      }
+      /*Medium (-md-) devices (tablets, 768px and up)*/
+      
+      @media (min-width: 768px) {
+        .LCARS_Bottom_Line {
+              border-radius: 0px 25px 25px 25px;
+              background: purple;
+              color: purple;
+          }
+          
+      }
+      /*Large (-lg-) devices (desktops, 992px and up)*/
+      
+      @media (min-width: 992px) {
+        .LCARS_Bottom_Line {
+              border-radius: 0px 25px 25px 25px;
+              background: purple;
+              color: purple;
+          }
+          
+      }
+      /*Extra large (-xl-) devices (large desktops, 1200px and up)*/
+      
+      @media (min-width: 1200px) {
+        .LCARS_Bottom_Line {
+              border-radius: 0px 25px 25px 25px;
+              background: purple;
+              color: purple;
+          }
+          
+      }
+               
+    </style>
+
     <title>SystemJ25 AR Business Cards Page</title>
   </head>
   <body>
@@ -21,19 +74,19 @@
             <header>
                  
                 <div class="row"> <!--row 1-->
-                    <div class="col-2 LCARS_Side_Panel">
+                    <div class="d-none d-sm-none d-md-block col-2 LCARS_Side_Panel">
                         <p>012</p>
                     </div>
                    
                     <div class="col-1"></div>
 
-                    <div class="col-1 btn-sttng-left-cap text-center justify-content-right">
+                    <div class="col-1 btn-sttng-left-cap text-center justify-content-right mb-1">
                       <p>7</p>
                     <!--
                       <button type="button" class="btn btn-sttng-left-cap btn-lg btn-block">7</button>
                     -->
                     </div>
-                    <div class="col-5 btn-sttng-text-display justify-content-right">
+                    <div class="col-5 btn-sttng-text-display justify-content-right mb-1">
 
                       <h1 class="display-5 text-center">AR BUSINESS CARDS</h1>
                       <!--
@@ -44,103 +97,103 @@
                       <button type="button" class="btn btn-sttng-text-display btn-sm btn-block">8</button>
                       -->  
                     </div>
-                    <div class="col-3 btn-sttng-right-trailer text-center justify-content-right">
-                      <p>9</p>
+                    <div class="d-none d-sm-block col-sm-2 col-md-3 col-lg-3 btn-sttng-right-trailer text-center justify-content-right mb-1">
+                        <p>9</p>
                     </div>
                     </div>
-               <nav>     
-                    <div class="row"> <!--row 2-->
-                        <div class="col-2 LCARS_Side_Panel">
-                        <p>012</p>
+                    <nav>     
+                        <div class="row"> <!--row 2-->
+                            <div class="d-none d-sm-none d-md-block col-2 LCARS_Side_Panel">
+                            <p>012</p>
+                            </div>
+    
+                            <div class="col-10">
+    
+                            </div>
+                        </div> <!--end of row 2-->
+                               
+                        <div class="row h-25">
+                            <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
+                                <!--<p class="h-25">LCARS</p>-->
+                            </div>
+                            <div class="col-1 sttng-right-leader text-center justify-content-left">1
+                            </div>
+                            
+                             <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                            <a class=" btn-sttng-text-display justify-content-center" href="index.html">HOME</a>
+                             </div>
+                            
+                            <div class="col-1 sttng-right-cap text-center justify-content-left">1
+                            </div>
+                            <div class="col-1 col-md-2">
+                                <!--<p class="h-25">LCARS</p>-->
+                            </div>
+                            <div class="col-1 sttng-right-leader text-center justify-content-left">5
+                            </div>
+                            
+                             <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                            <a class=" btn-sttng-text-display justify-content-center" href="sj25_contact.html">CONTACT</a>
+                             </div>
+                            
+                            <div class="col-1 sttng-right-cap text-center justify-content-left">5
+                            </div>
                         </div>
-
-                        <div class="col-10">
-
-                        </div>
-                    </div> <!--end of row 2-->
-                           
-                    <div class="row h-25">
-                        <div class="col-2 LCARS_Side_Panel">012
-                            <!--<p class="h-25">LCARS</p>-->
-                        </div>
-                        <div class="col-1 sttng-right-leader text-center justify-content-left">1
-                        </div>
-                        
-                         <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class=" btn-sttng-text-display justify-content-center" href="index.html">HOME</a>
-                         </div>
-                        
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">1
-                        </div>
-                        <div class="col-1 col-md-2">
-                            <!--<p class="h-25">LCARS</p>-->
-                        </div>
-                        <div class="col-1 sttng-right-leader text-center justify-content-left">5
-                        </div>
-                        
-                         <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class=" btn-sttng-text-display justify-content-center" href="sj25_contact.html">CONTACT</a>
-                         </div>
-                        
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">5
-                        </div>
-                    </div>
-
-                    <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">012
-                          <!--<p class="h-25">LCARS</p>-->
+    
+                        <div class="row h-25">
+                          <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
+                              <!--<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">2
+                          </div>
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class="btn-sttng-text-display justify-content-center" href="sj25_3dprinting.html">3D PRINTING</a>
+                          </div>
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">2
+                          </div>
+                          <div class="col-1 col-md-2">
+                              <!--<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">6
+                            </div>
+                            <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                            <a class="btn-sttng-text-display justify-content-center" href="sj25_messageboard.html">MESSAGE BOARD</a>
+                            </div>
+                            <div class="col-1 sttng-right-cap text-center justify-content-left">6
+                            </div>
                       </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">2
+    
+                      <div class="row h-25">
+                          <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">012
+                              <!--col-md-8<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">3
+                          </div>
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class="btn-sttng-text-display" href="sj25_3danimation.html">3D ANIMATION</a>
+                          </div>
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">3
+                          </div>
+                          
                       </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display justify-content-center" href="sj25_3dprinting.html">3D PRINTING</a>
+    
+                      <div class="row h-25">
+                          <div class="d-none d-sm-none d-md-block  col-2 LCARS_Side_Panel">LCARS
+                              <!--<p class="h-25">LCARS</p>-->
+                          </div>
+                          <div class="col-1 sttng-right-leader text-center justify-content-left">4
+                          </div>
+                          <div class="col-3 col-sm-2 col-md-2 col-lg-2 text-center justify-content-center adiv">
+                          <a class="btn-sttng-text-display" href="sj25_arbusinesscards.html">AR BUSINESS CARDS</a>
+                          </div>
+                          <div class="col-1 sttng-right-cap text-center justify-content-left">4
+                          </div>
                       </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">2
-                      </div>
-                      <div class="col-1 col-md-2">
-                          <!--<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">6
-                        </div>
-                        <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                        <a class="btn-sttng-text-display justify-content-center" href="sj25_messageboard.html">MESSAGE BOARD</a>
-                        </div>
-                        <div class="col-1 sttng-right-cap text-center justify-content-left">6
-                        </div>
-                  </div>
-
-                  <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">LCARS
-                          <!--col-md-8<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">3
-                      </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display" href="sj25_3danimation.html">3D ANIMATION</a>
-                      </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">3
-                      </div>
-                      
-                  </div>
-
-                  <div class="row h-25">
-                      <div class="col-2 LCARS_Side_Panel">LCARS
-                          <!--<p class="h-25">LCARS</p>-->
-                      </div>
-                      <div class="col-1 sttng-right-leader text-center justify-content-left">4
-                      </div>
-                      <div class="col-2 col-md-2 justify-content-center text-center adiv">
-                      <a class="btn-sttng-text-display" href="sj25_arbusinesscards.html">AR BUSINESS CARDS</a>
-                      </div>
-                      <div class="col-1 sttng-right-cap text-center justify-content-left">4
-                      </div>
-                  </div>
-                    <div class="row"> <!--row 3-->  
-                      <div class="col-12 LCARS_Bottom_Line">
-                        <p>012</p>
-                      </div>
-                    </div> <!--end of row 3-->
-                  </nav>  
+                        <div class="row"> <!--row 3-->  
+                          <div class="col-12 LCARS_Bottom_Line">
+                            <p>012</p>
+                          </div>
+                        </div> <!--end of row 3-->
+                      </nav>   
                         
             </header>        
               
@@ -155,25 +208,20 @@
 <div class="container pb-5 w-75 justify-content-center">
 <!--Carousel-->
     <div class="row mt-1">
-        <div class="col-3">
+        <div class="col-12 col-sm-6 col-md-3">
             <h6 class="text-white">Check out the AR Business Card Demo Video:</h6>
             <!--width="150" height="300"-->
             <video controls class="w-100">
                 <source src="videos/capture_20190301-1254PM.mp4" type="video/mp4">
             </video>
         </div>
-        <div class="col-9">
+        <div class="col-12 col-sm-6 col-md-9">
             <!--A slideshow component for cycling through elements—images or slides of text—like a carousel.-->
             <h3 class="course-heading text-white">Augmented Reality Business Cards</h3>
             <h6 class="text-white">How Augmented Reality Business cards work:</h6>
             <div class="row justify-content-center">
-                <div class="col-3 justify-content-center">
-                    <a href="https://www.zappar.com/">    
-                        <!--width="100" height="100"-->
-                        <img src="images/ZapparLogo.png" class="w-100" alt="Zappar logo">
-                    </a>
-                </div>
-                <div class="col-9 justify-content-center">
+                
+                <div class="col-12 col-sm-12 col-md-9 justify-content-center">
                     <p class="text-white">First you download the Zappar app onto your
                         cell phone from the <a href="https://apps.apple.com/us/app/zappar/id429885268">
                         App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.zappar.Zappar">
@@ -183,11 +231,32 @@
                         clients featured below:
                     </p>
                 </div>
+                <div class="col-9 col-sm-6 col-md-3 justify-content-center">
+                        <a href="https://www.zappar.com/">    
+                            <!--width="100" height="100"-->
+                            <img src="images/ZapparLogo.png" class="w-100" alt="Zappar logo">
+                        </a>
+                    </div>
+
             </div>    
         </div>
     </div>
+    <!--
+    <div class="row mt-1">
+        <div class="d-none d-sm-block d-md-none col-sm-12 justify-content-center">
+            <p class="text-white">First you download the Zappar app onto your
+                        cell phone from the <a href="https://apps.apple.com/us/app/zappar/id429885268">
+                        App Store</a> or <a href="https://play.google.com/store/apps/details?id=com.zappar.Zappar">
+                        Google Play</a>, then you scan the business card with
+                        the Zappar app and then the Augmented Reality content will
+                        appear.  Try it on the AR Business Cards that I've made for
+                        clients featured below:
+            </p>
+        </div>
+    </div>
+    -->
     <p class="text-white">If you would like me to make an Augmented Reality Business card for
-         you send me a product request using the <a href="sj25contact.html">Contact page</a>.</p>
+         you, send me a product request using the <a href="sj25contact.html">Contact page</a>.</p>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -216,7 +285,7 @@
                 <img class="d-block w-100" src="images/Scan of Mike's Actual Business Card with Zap Code.png" alt="Fifth slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="images/Scan of Susan's Actual Owl  Business Card002 with ZapCode.png" width="384" height="384" alt="Sixth slide">
+                <img class="d-block w-100" src="images/Susan's Business Card for Carousel.png" alt="Sixth slide">
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="images/SystemJ25 Enterprises Tracking Image.png" alt="Seventh slide">
