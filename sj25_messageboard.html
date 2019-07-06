@@ -21,15 +21,24 @@
             /*Extra small devices (portrait phones, less than 576px)*/
               /*No media query for `xs` since this is the default in Bootstrap*/
       
-              /*Small (-sm-) devices (landscape phones, 576px and up)*/
+              /*Extra Small (-xs-) devices (landscape phones, 576px and up)*/
               .LCARS_Bottom_Line {
                     border-radius: 25px 25px 25px 25px;
                     background: purple;
                     color: black;
                 }
-      
+              .LCARS_Top_Line {
+                border-radius: 25px 25px 25px 25px;
+                    background: purple;
+                    color: black;
+              }  
+              .LCARS_Message_Panel {
+                border-radius: 25px 25px 25px 25px;
+                    background: purple;
+                    color: black;
+              }
                 
-              /*576px*/
+              /*Small (sm) 576px*/
               @media (min-width: 576px) {
                 .LCARS_Bottom_Line {
                       border-radius: 25px 25px 25px 25px;
@@ -37,6 +46,17 @@
                       color: black;
                   }
       
+                  .LCARS_Top_Line {
+                    border-radius: 25pt 25pt 25pt 25pt;
+                    background: purple;
+                    color: black;
+                  }
+                  .LCARS_Message_Panel {
+                    border-radius: 25pt 25pt 25pt 25pt;
+                    background: purple;
+                    color: black;
+                  }
+
               }
               /*Medium (-md-) devices (tablets, 768px and up)*/
               
@@ -46,7 +66,16 @@
                       background: purple;
                       color: black;
                   }
-                  
+                  .LCARS_Top_Line {
+                    border-radius: 25pt 25pt 25pt 0pt;
+                    background: purple;
+                    color: black;
+                  }
+                  .LCARS_Message_Panel {
+                    border-radius: 25pt 0pt 25pt 25pt;
+                    background: purple;
+                    color: black;
+                  }
               }
               /*Large (-lg-) devices (desktops, 992px and up)*/
               
@@ -57,6 +86,16 @@
                       color: black;
                   }
                   
+                  .LCARS_Top_Line {
+                        border-radius: 25pt 25pt 25pt 0pt;
+                        background: purple;
+                        color: black;
+                    }
+                    .LCARS_Message_Panel {
+                    border-radius: 25pt 0pt 25pt 25pt;
+                    background: purple;
+                    color: black;
+                  }  
               }
               /*Extra large (-xl-) devices (large desktops, 1200px and up)*/
               
@@ -66,7 +105,16 @@
                       background: purple;
                       color: black;
                   }
-                  
+                  .LCARS_Top_Line {
+                        border-radius: 25pt 25pt 25pt 0pt;
+                        background: purple;
+                        color: black;
+                    }
+                    .LCARS_Message_Panel {
+                    border-radius: 25pt 0pt 25pt 25pt;
+                    background: purple;
+                    color: black;
+                  }
               }
                                     
             </style>
@@ -204,46 +252,57 @@
 
         <main>
                 <div class="row">
-                    <div class="col-12 text-white">
+                    <div class="col-12 text-white text-center justify-content-center">
                         <h6>The Message Board is for expressing your thoughts about Star Trek.
                         </h6>
-                        <p class="ES3DSSV_Story">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample">
+                                CLICK HERE TO SEE THE INSTRUCTIONS FOR THE MESSAGE BOARD:
+                            </button>
+                        <!--<p class="ES3DSSV_Story">-->
+                                <div class="collapse" id="collapseExample">
+                                        <div class="card card-body home_page_text">
                                Please type a message where it says "Type
-                              Message Here..." and type your name where it says 
-                              "Type Full Name Here...".  (You must type both a message
+                              Message..." and type your full name where it says 
+                              "Type Name...".  (You must type both a message
                                and a name to post a message.)  The Message Board will
                                 post your message under where it says "List of Posted Messages".
-                                The names of people who posted messages are listed under where is
+                                The names of people who posted messages are listed under where it
                                  says "Message Authors List". If you click on an author's name, you 
                                  will only see the messages from that author listed until you click
                                   on "View All Messages and All Authors".  By default, the messages
                                    are listed in the order in which they were posted (Chronological Order). 
-                                   You can view the messages in Reverse Chronological Order by clicking on
+                                   You can view the messages in Reverse Chronological Order (most recent message first) by clicking on
                                     the Sort Mode button and selecting the Reverse option.
-                                
-                        </p>
+                                </div>
+                            </div>    
+                        <!--</p>-->
                     </div>
                 </div>
+                <!--
                 <div class="row">
-                        <div class="col-5 justify-content-center">
+                        <div class="col-12 col-sm-5 justify-content-center">
                             <h5 class="text-white text-center" id="sortModeDisplay">SORT MODE IS CHRONOLOGICAL</h5>
                             <h5 class="text-white text-center" id="viewModeDisplay">NOW VIEWING ALL MESSAGES</h5>             
 
                         </div>
-                        <div class="col-7 font-weight-bold text-center LCARS_Top_Line mt-1">
+                        <div class="col-12 col-sm-7 font-weight-bold text-center LCARS_Top_Line mt-1">
                             <p>List of Posted Messages:</p>
                             <button type="button" class="btn btn-primary btn-sm m-1" id="viewAll">View All Messages and All Authors</button>
                         </div>
                 </div>
-
+                -->
                 <div class="form-row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
 
                         <div class="row">
 
                             <div class="col">
+                                    <div class="col-12 justify-content-center">
 
-
+                                            <h6 class="text-white text-center" id="sortModeDisplay">SORT MODE IS CHRONOLOGICAL</h6>
+                                            <h6 class="text-white text-center" id="viewModeDisplay">NOW VIEWING ALL MESSAGES</h6>             
+                
+                                    </div>
 
                             </div>
 
@@ -263,21 +322,22 @@
                             <div class="col">
                                 <div class="form-row m-1">
                                     <div class="col">
-                                        <div class="input-group">
+                                        <div class="input-group text-danger">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">Message</span>
                                             </div>
-                                            <textarea class="form-control" placeholder="Type Message Here..." id="messageText"></textarea>
+                                            <textarea class="form-control" placeholder="Type Message..." id="messageText"></textarea>
                                         </div>
                                     </div>
                                 </div>  
                                 <div class="form-row m-1">
                                     <div class="col">
-                                        <input type="text" class="form-control" placeholder="Type Full Name Here..." id="authorName">
+                                        <input type="text" class="form-control" placeholder="Type Name..." id="authorName">
+                                        <!--<textarea class="form-control" placeholder="Type Name..." id="authorName"></textarea>-->
                                     </div>
                                         
                                     <div class="col">
-                                        <input class="form-control" type="text" placeholder="Time/Date" id="timeDateDisplay" readonly>
+                                        <textarea class="form-control" placeholder="Time/Date" id="timeDateDisplay" readonly></textarea>
                                     </div>  
                                 </div>
                             </div>
@@ -305,137 +365,26 @@
                         </div>    
                         <div class="row">
                                 <div class="col-4 LCARS_Message_Authors_Lower_Side_Panel">910
-                                    <!--
-                                        <div class="dropdown">
-                                                <button class="btn btn-secondary btn-sm dropdown-toggle m-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                  Sort Author's Messages
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                  <a class="dropdown-item" href="#">Most Recent First</a>
-                                                  <a class="dropdown-item" href="#">Oldest First</a>
-                                                  
-                                                </div>
-                                        </div>
-                                      -->  
+                                      
                                 </div>    
                                 <div class="col" id="authorList">
-                                 <!--       
-                                    <input type="text" class="form-control m-1" placeholder="First Name Last Name" value="Jacutus0fB0rg" readonly>
-                                    <input type="text" class="form-control m-1" placeholder="First Name Last Name" readonly>
-                                    <input type="text" class="form-control m-1" placeholder="First Name Last Name" readonly>
-                                 -->   
+                                  
                                 </div>
     
                         </div>
 
-                      <!--  
-                        <div class="row">
-                                <div class="col-4">
-                                    
-                                </div>    
-                                <div class="col">
-                                    <input type="text" class="form-control m-1" placeholder="First Name Last Name" readonly>
-                                </div>
-    
-                        </div>
-                        <div class="row">
-                                <div class="col-4">
-                                    
-                                </div>    
-                                <div class="col">
-                                    <input type="text" class="form-control m-1" placeholder="First Name Last Name" readonly>
-                                </div>
-    
-                        </div>
-                      -->  
+                      
                     </div>
 
+                    <div class="col-12 col-md-6 mt-1">
+                            <div class="font-weight-bold text-center LCARS_Top_Line">
+                                <p>List of Posted Messages:</p>
+                                <button type="button" class="btn btn-primary btn-sm m-1" id="viewAll">View All Messages and All Authors</button>
+                            </div>    
+                            <div class="col-12" id="messageList">
 
-                    <div class="col-6" id="messageList">
-
-                        
-                            <!--<form>-->
-                                
-                            <!--    
-                                <div class="form-row m-1">
-                                <div class="col">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text">Message</span>
-                                        </div>
-                                        <textarea class="form-control" placeholder="Message Text" value="This is the message.">This is the message.</textarea>
-                                    </div>
-                                </div>
-                                </div>  
-                                <div class="form-row m-1">
-                                    <div class="col">
-                                    <input type="text" class="form-control" placeholder="First Name Last Name" value="Jack Eisenfeld" readonly>
-                                    </div>
-                                 
-                                    <div class="col">
-                                    <input class="form-control" type="text" placeholder="Time/Date" value="" readonly>
-                                    </div>  
-                                </div>  
-                            -->   
-                                
-                            <!--</form>-->
-
-
-                    
-
-                            <!--<form>-->
-                                    <!--
-                                    <div class="form-row m-1">
-                                            <div class="col">
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                    <span class="input-group-text">Message</span>
-                                                    </div>
-                                                    <textarea class="form-control" placeholder="Message Text" readonly></textarea>
-                                                </div>
-                                            </div>
-                                            </div>  
-                                            <div class="form-row m-1">
-                                                <div class="col">
-                                                <input type="text" class="form-control" placeholder="First Name Last Name" readonly>
-                                                </div>
-                                            
-                                                <div class="col">
-                                                <input class="form-control" type="text" placeholder="Time/Date" readonly>
-                                                </div>  
-                                            </div>  
-                                            -->
-                                            
-                                        <!--</form>-->
-                 
-                            
-                                <!--<form>-->
-                                    <!--
-                                                <div class="form-row m-1">
-                                                    <div class="col">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">Message</span>
-                                                            </div>
-                                                            <textarea class="form-control" placeholder="Message Text" readonly></textarea>
-                                                        </div>
-                                                    </div>
-                                                </div>  
-                                                <div class="form-row m-1">
-                                                    <div class="col">
-                                                    <input type="text" class="form-control" placeholder="First Name Last Name" readonly>
-                                                    </div>
-                                                
-                                                    <div class="col">
-                                                    <input class="form-control" type="text" placeholder="Time/Date" readonly>
-                                                    </div>  
-                                                </div>  
-                                                -->
-                                                
-                                            <!--</form>-->
-                                           
-                           
-                    </div>    
+                            </div>
+                    </div>            
                 </div>    
 
                 <div class="row">
@@ -530,7 +479,7 @@
             }
 
             const standardDisplayTime = displayHours.toString() + ":" + splitMilitaryTime[minutesIndex] + 
-                ":" + splitMilitaryTime[secondsIndex] + displayAMPM + " " + splitTimeDateStamp[monthIndex] +
+                ":" + splitMilitaryTime[secondsIndex] + displayAMPM + "\n" + splitTimeDateStamp[monthIndex] +
                 " " + splitTimeDateStamp[dayIndex] + " " + splitTimeDateStamp[yearIndex]
 
             return standardDisplayTime    
@@ -613,7 +562,7 @@
                                         </div>
                                     
                                         <div class="col">
-                                        <input class="form-control" type="text" placeholder="Time/Date" value="${messageTimeDateDisplay}" readonly>
+                                        <textarea class="form-control" placeholder="Time/Date" readonly>${messageTimeDateDisplay}</textarea>
                                         </div>  
                                     </div> 
                                 </div>    
@@ -1014,7 +963,7 @@
             if (messageTextArea.value.length === 0) {
                 // display an error message
                 //descriptionError.classList.remove('d-none')
-                messageTextArea.placeholder = "Please type a valid message..."
+                messageTextArea.placeholder = "Invalid message..."
 
                 messageIsValid = false
                 // Stop anything else from happening
@@ -1024,7 +973,7 @@
             if (authorNameInput.value.length === 0) {
                 // display an error message
                 //priorityError.classList.remove('d-none')
-                authorNameInput.placeholder = "Please type a valid name..."
+                authorNameInput.placeholder = "Invalid name..."
                 messageIsValid = false
             }
             
@@ -1037,9 +986,9 @@
                 const message = messageFactory(messageTextArea.value, authorNameInput.value, messageTimeDateStamp)
 
                 //messageText, authorName, timeDate
-                //console.log(`message.messageText is ${message.messageText}`)
-                //console.log(`message.authorName is ${message.authorName}`)
-                //console.log(`message.timeDateStamp is ${message.timeDateStamp}`)
+                console.log(`message.messageText is ${message.messageText}`)
+                console.log(`message.authorName is ${message.authorName}`)
+                console.log(`message.timeDateStamp is ${message.timeDateStamp}`)
                 
                 messages.push(message)
 
@@ -1101,8 +1050,8 @@
                 // Reset form elements
                 messageTextArea.value = null
                 authorNameInput.value = null
-                messageTextArea.placeholder = "Type Message Here..."
-                authorNameInput.placeholder="Type Full Name Here..."
+                messageTextArea.placeholder = "Type Message..."
+                authorNameInput.placeholder="Type Name..."
 
                 // Hide our error divs
                 //descriptionError.classList.add('d-none')
@@ -1113,7 +1062,30 @@
             }
         })
 
-       
+        //messageText, authorName, timeDate
+        let forcedmessage = messageFactory("StarTrek is great!", "Jack Eisenfeld", "16:26:20 Jul 05 2019")
+        messages.push(forcedmessage)
+        renderMessage(forcedmessage)
+        authors.push(forcedmessage.authorName)
+        renderAuthor(forcedmessage.authorName)
+        forcedmessage = messageFactory("StarTrek is awesome!", "Jacutus0fB0rg", "16:46:16 Jul 05 2019")
+        messages.push(forcedmessage)
+        renderMessage(forcedmessage)
+        authors.push(forcedmessage.authorName)
+        renderAuthor(forcedmessage.authorName)
+        forcedmessage = messageFactory("Indeed, your logic is impeccable.", "Spock", "16:52:52 Jul 05 2019")
+        messages.push(forcedmessage)
+        renderMessage(forcedmessage)
+        authors.push(forcedmessage.authorName)
+        renderAuthor(forcedmessage.authorName)
+        forcedmessage = messageFactory('In Star Trek the Next Generation, do you believe that Barclay was responsible for the quantum fissure that caused Worf to shift into other quantum universes in the episode "Parallels"?', "Jack Eisenfeld", "16:55:55 Jul 05 2019")
+        messages.push(forcedmessage)
+        renderMessage(forcedmessage)
+        forcedmessage = messageFactory(`Yes I do. When Barclay was affected by the Cytherian probe, he evolved to where he created a "neural scan interface" with the Enterprise's computer thus becoming and answering as the Enterprise's computer and then he controlled the warp engines to "manipulate sub-space in a way that's never been conceived before" propelling the Enterprise to the home planet of the Cytherians.  Both this incident and the path of Worf's shuttle in "Parallels" took place near the Argus array so I that's why I believe the two are linked.  In manipulating sub-space, Barclay must have damaged or changed  the space in that region so that is was in a state of quantum instability.`, "Jacutus0fB0rg", "16:57:25 Jul 05 2019")
+        messages.push(forcedmessage)
+        renderMessage(forcedmessage)
+
+
     </script>
   </body>
 </html>
