@@ -261,18 +261,17 @@
                         <!--<p class="ES3DSSV_Story">-->
                                 <div class="collapse" id="collapseExample">
                                         <div class="card card-body home_page_text">
-                               Please type a message where it says "Type
-                              Message..." and type your full name where it says 
-                              "Type Name...".  (You must type both a message
-                               and a name to post a message.)  The Message Board will
-                                post your message under where it says "List of Posted Messages".
+                               Please type a message under where it says "MESSAGE" and type your name under where
+                                it says "NAME" then click the "Post Message" button.  (You must type both a message and a name to post a message
+                                 otherwise you will get an Invalid Message or Invalid Name error and the message
+                                  won't post.)  Posted messages will appear under where it says "LIST OF POSTED MESSAGES".
                                 The names of people who posted messages are listed under where it
-                                 says "Message Authors List". If you click on an author's name, you 
+                                 says "MESSAGE AUTHORS LIST". If you click on an author's name, you 
                                  will only see the messages from that author listed until you click
-                                  on "View All Messages and All Authors".  By default, the messages
-                                   are listed in the order in which they were posted (Chronological Order). 
+                                  on "VIEW ALL MESSAGES AND ALL AUTHORS".  By default, the messages
+                                   are listed in the order in which they were posted (Chronological Order, most recent message last). 
                                    You can view the messages in Reverse Chronological Order (most recent message first) by clicking on
-                                    the Sort Mode button and selecting the Reverse option.
+                                    the "SORT MODE" button and selecting the Reverse option.
                                 </div>
                             </div>    
                         <!--</p>-->
@@ -319,12 +318,13 @@
                         </div>
                         <!--style="display:none;"-->
                         <div class="row" id="messagePanel">
+                            <label class="col-12 text-white text-center">MESSAGE</label>
                             <div class="col">
                                 <div class="form-row m-1">
                                     <div class="col">
-                                        <div class="input-group text-danger">
+                                        <div class="input-group">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text">Message</span>
+                                                <button type="button" class="btn btn-primary btn-sm expandButton" data-toggle="modal" data-target="#messageCreationModalScrollable" id="messageCreationExpandButton">Expand</button>
                                             </div>
                                             <textarea class="form-control" placeholder="Type Message..." id="messageText"></textarea>
                                         </div>
@@ -332,6 +332,7 @@
                                 </div>  
                                 <div class="form-row m-1">
                                     <div class="col">
+                                        <label class="text-white text-center">NAME</label>
                                         <input type="text" class="form-control" placeholder="Type Name..." id="authorName">
                                         <!--<textarea class="form-control" placeholder="Type Name..." id="authorName"></textarea>-->
                                     </div>
@@ -349,10 +350,10 @@
                                <p>345</p>
                             </div>    
                             <div class="col-8 text-center font-weight-bold LCARS_Message_Authors_Panel">
-                                Message Authors List:
+                                MESSAGE AUTHORS LIST
                                 <div class="dropdown">
-                                        <button class="btn btn-primary btn-sm dropdown-toggle m-1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Sort Mode
+                                        <button class="btn btn-primary btn-sm dropdown-toggle m-1" type="button" id="sortModeMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          SORT MODE
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                           <button class="dropdown-item" href="#" id="chronoButton">Chronological</button>
@@ -378,8 +379,8 @@
 
                     <div class="col-12 col-md-6 mt-1">
                             <div class="font-weight-bold text-center LCARS_Top_Line">
-                                <p>List of Posted Messages:</p>
-                                <button type="button" class="btn btn-primary btn-sm m-1" id="viewAll">View All Messages and All Authors</button>
+                                <p>LIST OF POSTED MESSAGES:</p>
+                                <button type="button" class="btn btn-primary btn-sm m-1" id="viewAll">VIEW ALL MESSAGES AND ALL AUTHORS</button>
                             </div>    
                             <div class="col-12" id="messageList">
 
@@ -395,11 +396,11 @@
             
             <!-- Button trigger modal -->
       <!--          
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable" id="modalLaunch">
-        Launch demo modal
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#messageCreationModalScrollable" id="modalLaunch">
+        Launch Message Creation Modal
       </button>
       -->
-      <!-- Modal -->
+      <!--Message Expand Modal -->
       <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
           <div class="modal-content">
@@ -414,12 +415,52 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <!--<button type="button" class="btn btn-primary">Save changes</button>-->
             </div>
           </div>
         </div>
       </div>    
 
+      <!--Message Creation Modal -->
+      <div class="modal fade" id="messageCreationModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="creationModalTitle">Message Creation Panel</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                
+                <div class="row">
+                    <label class="col-12 text-dark text-center">MESSAGE</label>
+                    <div class="col">
+                        
+                        <div class="modal-body" id="CreationModalBody">
+                            <textarea class="form-control" minlength="1" wrap required placeholder="Type Message..." id="mcmMessageText"></textarea>    
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row m-1">
+                        
+                        <div class="col">
+                            <label class="text-dark text-center">NAME</label>
+                            <input type="text" class="form-control" placeholder="Type Name..." id="mcmAuthorName">
+                            <!--<textarea class="form-control" placeholder="Type Name..." id="authorName"></textarea>-->
+                        </div>
+                            
+                        <div class="col">
+                            <textarea class="form-control" placeholder="Time/Date" id="mcmTimeDateDisplay" readonly></textarea>
+                        </div>  
+                    </div>
+                    
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="messageCreationCloseButton">Close</button>
+                  <button type="button" class="btn btn-primary" id="mcmPostMessage">Post Message</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </main>        
 
@@ -487,11 +528,13 @@
         }
 
         const timeDateDisplay = document.getElementById('timeDateDisplay')
+        const mcmtimeDateDisplay = document.getElementById('mcmtimeDateDisplay')
 
         function writeTimeDateToDisplay() {
             const currentTimeDateStamp = makeTimeDateStamp()
             const currentTimeDateDisplay = convertTimeDateStampToStandardDisplay(currentTimeDateStamp)
             timeDateDisplay.value = currentTimeDateDisplay
+            mcmTimeDateDisplay.value = currentTimeDateDisplay
         }
         
 
@@ -516,6 +559,14 @@
         const modalBody = document.getElementById('modalBody')
         const modalTitle = document.getElementById('modalTitle')
         let expandButtons = document.getElementsByClassName('expandButton')
+
+        const messageCreationExpandButton = document.getElementById('messageCreationExpandButton')
+        const mcmMessageTextArea = document.getElementById('mcmMessageText')
+        const mcmAuthorNameInput = document.getElementById('mcmAuthorName')
+        const mcmPostMessageButton = document.getElementById('mcmPostMessage')
+        const messageCreationCloseButton = document.getElementById('messageCreationCloseButton')
+        const sortModeMenuButton = document.getElementById('sortModeMenuButton')
+        
         
         let messages = new Array()
         let messageId = 0
@@ -634,6 +685,83 @@
                 }    
         }
 
+        const createAuthorInputEventListener = (aiReference) => {
+
+            aiReference.addEventListener('click', event => {
+                //const tempAuthorInputValue = authorInput.value
+                console.log(`An authorInput was clicked on`)
+                console.log(`The author was ${aiReference.value}`)
+
+                viewMode = aiReference.value
+                viewModeDisplay.innerHTML = "NOW VIEWING " + viewMode + "'s MESSAGES"
+
+                //authorInput.style ="display:none;"
+
+                let authorMessageIndices = []
+                // Determine which messages are from the author who was clicked on
+                // Go through the messages
+                for (i=0;i<messages.length;i++) {
+                    // if the message was from the author
+                    //console.log(`messages.authorName was ${messages.authorName}`)
+
+                    if (messages[i].authorName == aiReference.value) {
+                        // Add the message number to the list 
+                        authorMessageIndices.push(messages[i].id)
+                    }
+                }
+
+                // Print the number of messages that were posted by the author
+                console.log(`The number of messages that were posted by the author was ${authorMessageIndices.length}`)
+                // Print the message text for each message that was posted by the author
+                console.log(`The author's messages were:`) 
+                for (m=0;m<authorMessageIndices.length;m++) {
+                    index = authorMessageIndices[m]
+                    console.log(`Message[${index}]: ${messages[index].messageText}`)
+                }
+
+                //Make all authorInputs disappear
+                for (aI=0;aI<authorInputs.length;aI++) {
+                    authorInputs[aI].style = "display:none;"
+                }
+                //Make the authorInput that was clicked on reappear
+                aiReference.style ="display:block;"
+
+                messageDisplays = document.getElementsByClassName("messageDisplay")
+                //Make all message displays disappear
+                for (mD=0;mD<messageDisplays.length;mD++) {
+                    messageDisplays[mD].style = "display:none;"
+                }    
+                //Make all message displays from the author reappear
+                /*
+                for (md1=0;md1<authorMessageIndices.length;md1++) {
+                    index1 = authorMessageIndices[md1]
+                    const messageIdString = messageDisplays[index1].id
+                    const messageId = parseInt(messageIdString)
+                    console.log(`Message[${index1}] is being tested against messageDisplay[${messageId}`)
+                    if (index1 == messageId) {
+                        console.log(`Message[${index1}] matched messageDisplay[${messageId}`)
+                        messageDisplays[index1].style = "display:block;"
+                    }    
+                    //console.log(`Message[${index}]: ${messages[index].messageText}`)
+                }
+                */
+                //Go through all the messages and make the ones from the author reappear
+                for (mDI=0;mDI<messageDisplays.length;mDI++) {
+
+                    for (mAI=0;mAI<authorMessageIndices.length;mAI++) {
+                        console.log(`Message[${mDI}] is being tested against authorMessageIndices[${mAI}`)
+                        const messageDisplayId = parseInt(messageDisplays[mDI].id)
+                        if (messageDisplayId == authorMessageIndices[mAI]) {
+                            messageDisplays[mDI].style = "display:block;"
+                        }
+
+                    }
+
+                }
+
+            })
+        }    
+
         function renderAuthor(authorToRender) {
             // Generate our html
             const htmlString = authorHTML(authorToRender)
@@ -654,79 +782,8 @@
                 }
                 */
                 const authorInput = authorInputs[authorInputs.length-1]
-                    authorInput.addEventListener('click', event => {
-                        //const tempAuthorInputValue = authorInput.value
-                        console.log(`An authorInput was clicked on`)
-                        console.log(`The author was ${authorInput.value}`)
-
-                        viewMode = authorInput.value
-                        viewModeDisplay.innerHTML = "NOW VIEWING " + viewMode + "'s MESSAGES"
-
-                        //authorInput.style ="display:none;"
-
-                        let authorMessageIndices = []
-                        // Determine which messages are from the author who was clicked on
-                        // Go through the messages
-                        for (i=0;i<messages.length;i++) {
-                            // if the message was from the author
-                            //console.log(`messages.authorName was ${messages.authorName}`)
-
-                            if (messages[i].authorName == authorInput.value) {
-                                // Add the message number to the list 
-                                authorMessageIndices.push(messages[i].id)
-                            }
-                        }
-
-                        // Print the number of messages that were posted by the author
-                        console.log(`The number of messages that were posted by the author was ${authorMessageIndices.length}`)
-                        // Print the message text for each message taht was posted by the author
-                        console.log(`The author's messages were:`) 
-                        for (m=0;m<authorMessageIndices.length;m++) {
-                            index = authorMessageIndices[m]
-                            console.log(`Message[${index}]: ${messages[index].messageText}`)
-                        }
-
-                        //Make all authorInputs disappear
-                        for (aI=0;aI<authorInputs.length;aI++) {
-                            authorInputs[aI].style = "display:none;"
-                        }
-                        //Make the authorInput that was clicked on reappear
-                        authorInput.style ="display:block;"
-
-                        messageDisplays = document.getElementsByClassName("messageDisplay")
-                        //Make all message displays disappear
-                        for (mD=0;mD<messageDisplays.length;mD++) {
-                            messageDisplays[mD].style = "display:none;"
-                        }    
-                        //Make all message displays from the author reappear
-                        /*
-                        for (md1=0;md1<authorMessageIndices.length;md1++) {
-                            index1 = authorMessageIndices[md1]
-                            const messageIdString = messageDisplays[index1].id
-                            const messageId = parseInt(messageIdString)
-                            console.log(`Message[${index1}] is being tested against messageDisplay[${messageId}`)
-                            if (index1 == messageId) {
-                                console.log(`Message[${index1}] matched messageDisplay[${messageId}`)
-                                messageDisplays[index1].style = "display:block;"
-                            }    
-                            //console.log(`Message[${index}]: ${messages[index].messageText}`)
-                        }
-                        */
-                        //Go through all the messages and make the ones from the author reappear
-                        for (mDI=0;mDI<messageDisplays.length;mDI++) {
-
-                            for (mAI=0;mAI<authorMessageIndices.length;mAI++) {
-                                console.log(`Message[${mDI}] is being tested against authorMessageIndices[${mAI}`)
-                                const messageDisplayId = parseInt(messageDisplays[mDI].id)
-                                if (messageDisplayId == authorMessageIndices[mAI]) {
-                                    messageDisplays[mDI].style = "display:block;"
-                                }
-
-                            }
-
-                        }
-
-                    })
+                createAuthorInputEventListener(authorInput)
+                    
                 
             }
         }
@@ -745,7 +802,20 @@
         })
         */
 
+        messageCreationExpandButton.addEventListener('click', event => {
+            //console.log(`messageCreationExpandButton Press detected`)
+            
+            mcmMessageTextArea.value = messageTextArea.value
+            mcmAuthorNameInput.value = authorNameInput.value 
+        })
+
+        messageCreationCloseButton.addEventListener('click', event => {
+            messageTextArea.value = mcmMessageTextArea.value
+            authorNameInput.value = mcmAuthorNameInput.value
+        })
+
         function convertIndexToSortableIndexString(theIndex) {
+            // adds leading zeros to an index number so it can be sorted
             const lastIndex = messages.length-1
             const lastIndexString = lastIndex.toString()
             const numberOfDigitsInTheLastIndex = lastIndexString.length
@@ -858,6 +928,7 @@
         }
 
         reverseButton.addEventListener('click', event => {
+            //chronoButton.classlist.remove('active')
             console.log("Reverse button was pressed")
             //messagePanel = document.getElementById('messagePanel')
             //messageDisplays = document.getElementsByClassName("messageDisplay")
@@ -903,6 +974,8 @@
         })
 
         chronoButton.addEventListener('click', event => {
+            //reverseButton.classlist.remove('active')           
+
             console.log("Chrono button was pressed")
             if (sortMode == "REVERSE") {
                 if (messages.length >=2) {
@@ -939,6 +1012,24 @@
             viewModeDisplay.innerHTML = "NOW VIEWING " + viewMode + " MESSAGES"
         })
 
+        sortModeMenuButton.addEventListener('click', event => {
+
+            if (sortMode == "CHRONOLOGICAL") {
+                //set chrono button class to active
+                chronoButton.classList.add('active')
+                // remove active class from reverse button
+                reverseButton.classList.remove('active')
+
+            } else if (sortMode == "REVERSE") {
+                // set reverse button class to active 
+                reverseButton.classList.add('active')
+                //remove active class from chrono button
+                chronoButton.classList.remove('active')
+                
+            }
+
+        })
+
         function checkIfTheCurrentMessageAuthorMatchesTheViewMode(targetAuthorName) {
             
             if (viewMode != "ALL") {
@@ -952,38 +1043,88 @@
             
         }
 
-        postMessageButton.addEventListener('click', event => {
+
+
+
+        //const createPriorityEventListener = (pbReference) => {
+            //pbReference.addEventListener('click', event => {
+
+        const createPostMessageButtonEventListener = (pmbReference) => {       
+
+            pmbReference.addEventListener('click', event => {
             
+                console.log(`Post Message Button id is ${pmbReference.id}`)
+
             // Determine if message is valid (not empty)
 
             // Determine if authorname is valid (not empty)
             // Check message text to ensure it isn't empty. Number of characters must be greater than 0
             let messageIsValid = true
            
-            if (messageTextArea.value.length === 0) {
-                // display an error message
-                //descriptionError.classList.remove('d-none')
-                messageTextArea.placeholder = "Invalid message..."
+            if (pmbReference.id == "postMessage") {
+                // validate message text and author name on the webpage
+                if (messageTextArea.value.length === 0) {
+                    // display an error message
+                    //descriptionError.classList.remove('d-none')
+                    messageTextArea.placeholder = "Invalid message..."
+                    mcmMessageTextArea.placeholder = "Invalid message..."
 
-                messageIsValid = false
-                // Stop anything else from happening
-            }
+                    messageIsValid = false
+                    // Stop anything else from happening
+                }
 
-            // Check authorName to ensure it is valid. Number of characters must be greater than 0
-            if (authorNameInput.value.length === 0) {
-                // display an error message
-                //priorityError.classList.remove('d-none')
-                authorNameInput.placeholder = "Invalid name..."
-                messageIsValid = false
-            }
-            
+                // Check authorName to ensure it is valid. Number of characters must be greater than 0
+                if (authorNameInput.value.length === 0) {
+                    // display an error message
+                    //priorityError.classList.remove('d-none')
+                    authorNameInput.placeholder = "Invalid name..."
+                    mcmAuthorNameInput.placeholder = "Invalid name..."
+
+                    messageIsValid = false
+                }
+
+            } else if (pmbReference.id == "mcmPostMessage") {
+                // validate message text and author name in message creation modal
+                if (mcmMessageTextArea.value.length === 0) {
+                    // display an error message
+                    //descriptionError.classList.remove('d-none')
+                    mcmMessageTextArea.placeholder = "Invalid message..."
+                    messageTextArea.placeholder = "Invalid message..."
+
+                    messageIsValid = false
+                    // Stop anything else from happening
+                }
+
+                // Check authorName to ensure it is valid. Number of characters must be greater than 0
+                if (mcmAuthorNameInput.value.length === 0) {
+                    // display an error message
+                    //priorityError.classList.remove('d-none')
+                    mcmAuthorNameInput.placeholder = "Invalid name..."
+                    authorNameInput.placeholder = "Invalid name..."
+
+                    messageIsValid = false
+                }
+
+            }   
+         
 
             if (messageIsValid) {
                 // Make a time date stamp for the message
                 const messageTimeDateStamp = makeTimeDateStamp()
             
+                let messageTextToUse = ""
+                let authorNameToUse = ""
+                
+                if (pmbReference.id == "postMessage") {
+                    messageTextToUse = messageTextArea.value
+                    authorNameToUse = authorNameInput.value
+                } else if (pmbReference.id == "mcmPostMessage") {
+                    messageTextToUse = mcmMessageTextArea.value
+                    authorNameToUse = mcmAuthorNameInput.value
+                }
+
                 // Define our message object
-                const message = messageFactory(messageTextArea.value, authorNameInput.value, messageTimeDateStamp)
+                const message = messageFactory(messageTextToUse, authorNameToUse, messageTimeDateStamp)
 
                 //messageText, authorName, timeDate
                 console.log(`message.messageText is ${message.messageText}`)
@@ -1053,6 +1194,11 @@
                 messageTextArea.placeholder = "Type Message..."
                 authorNameInput.placeholder="Type Name..."
 
+                mcmMessageTextArea.value = null
+                mcmAuthorNameInput.value = null
+                mcmMessageTextArea.placeholder = "Type Message..."
+                mcmAuthorNameInput.placeholder="Type Name..."
+
                 // Hide our error divs
                 //descriptionError.classList.add('d-none')
                 //priorityError.classList.add('d-none')
@@ -1061,6 +1207,11 @@
                 console.log("Message was invalid")
             }
         })
+
+    }
+
+        createPostMessageButtonEventListener(postMessageButton)
+        createPostMessageButtonEventListener(mcmPostMessageButton)
 
         //messageText, authorName, timeDate
         let forcedmessage = messageFactory("StarTrek is great!", "Jack Eisenfeld", "16:26:20 Jul 05 2019")
@@ -1084,7 +1235,11 @@
         forcedmessage = messageFactory(`Yes I do. When Barclay was affected by the Cytherian probe, he evolved to where he created a "neural scan interface" with the Enterprise's computer thus becoming and answering as the Enterprise's computer and then he controlled the warp engines to "manipulate sub-space in a way that's never been conceived before" propelling the Enterprise to the home planet of the Cytherians.  Both this incident and the path of Worf's shuttle in "Parallels" took place near the Argus array so I that's why I believe the two are linked.  In manipulating sub-space, Barclay must have damaged or changed  the space in that region so that is was in a state of quantum instability.`, "Jacutus0fB0rg", "16:57:25 Jul 05 2019")
         messages.push(forcedmessage)
         renderMessage(forcedmessage)
-
+        forcedmessage = messageFactory(`Let's see what's out there. Engage!`, "Jean-Luc Picard", "17:55:29 Jul 06 2019")
+        messages.push(forcedmessage)
+        renderMessage(forcedmessage)
+        authors.push(forcedmessage.authorName)
+        renderAuthor(forcedmessage.authorName)
 
     </script>
   </body>
