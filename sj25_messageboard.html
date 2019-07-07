@@ -331,8 +331,9 @@
                                     </div>
                                 </div>  
                                 <div class="form-row m-1">
+                                    
                                     <div class="col">
-                                        <label class="text-white text-center">NAME</label>
+                                        <label class="col-12 text-white text-center">NAME</label>
                                         <input type="text" class="form-control" placeholder="Type Name..." id="authorName">
                                         <!--<textarea class="form-control" placeholder="Type Name..." id="authorName"></textarea>-->
                                     </div>
@@ -441,15 +442,17 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="form-row m-1">
                         
-                        <div class="col">
-                            <label class="text-dark text-center">NAME</label>
-                            <input type="text" class="form-control" placeholder="Type Name..." id="mcmAuthorName">
-                            <!--<textarea class="form-control" placeholder="Type Name..." id="authorName"></textarea>-->
-                        </div>
+                        <div class="col justify-content-center">
+                                <label class="col-12 text-dark text-center justify-content-center">NAME</label>                           
+                                
+                                <input type="text" class="form-control" placeholder="Type Name..." id="mcmAuthorName">
+                                <!--<textarea class="form-control" placeholder="Type Name..." id="authorName"></textarea>-->
                             
-                        <div class="col">
+                        </div>    
+                        <div class="col justify-content-right">
                             <textarea class="form-control" placeholder="Time/Date" id="mcmTimeDateDisplay" readonly></textarea>
                         </div>  
                     </div>
@@ -513,10 +516,15 @@
             if (militaryHours > 12) {
                 displayHours = militaryHours - 12
                 displayAMPM = "PM"
-            } else {
+            } else if (militaryHours == 12) {
+                displayHours = militaryHours
+                displayAMPM = "PM"
+            } else if (militaryHours > 0) {
                 displayHours = militaryHours
                 displayAMPM = "AM"
-
+            } else if (militaryHours == 0) {
+                displayHours = 12
+                displayAMPM = "AM"
             }
 
             const standardDisplayTime = displayHours.toString() + ":" + splitMilitaryTime[minutesIndex] + 
@@ -1240,6 +1248,9 @@
         renderMessage(forcedmessage)
         authors.push(forcedmessage.authorName)
         renderAuthor(forcedmessage.authorName)
+        forcedmessage = messageFactory(`Live long and prosper.`, "Spock", "22:15:38 Jul 06 2019")
+        messages.push(forcedmessage)
+        renderMessage(forcedmessage)
 
     </script>
   </body>
