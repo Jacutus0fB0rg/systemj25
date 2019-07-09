@@ -428,7 +428,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="creationModalTitle">Message Creation Panel</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="XCloseButton">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -446,9 +446,9 @@
                 <div class="form-row m-1">
                         
                         <div class="col justify-content-center">
-                                <label class="col-12 text-dark text-center justify-content-center">NAME</label>                           
+                            <label class="col-12 text-dark text-center justify-content-center">NAME</label>                           
                                 
-                                <input type="text" class="form-control" placeholder="Type Name..." id="mcmAuthorName">
+                            <input type="text" class="form-control" placeholder="Type Name..." id="mcmAuthorName">
                                 <!--<textarea class="form-control" placeholder="Type Name..." id="authorName"></textarea>-->
                             
                         </div>    
@@ -549,7 +549,6 @@
         
         interval = setInterval(writeTimeDateToDisplay,1000);
         
-
         const postMessageButton = document.getElementById('postMessage')
         const messageTextArea = document.getElementById('messageText')
         const authorNameInput = document.getElementById('authorName')
@@ -574,8 +573,8 @@
         const mcmPostMessageButton = document.getElementById('mcmPostMessage')
         const messageCreationCloseButton = document.getElementById('messageCreationCloseButton')
         const sortModeMenuButton = document.getElementById('sortModeMenuButton')
-        
-        
+        const messageCreationXCloseButton = document.getElementById('XCloseButton')
+                
         let messages = new Array()
         let messageId = 0
         let authors = []
@@ -646,20 +645,24 @@
 
         }
 
-        function renderMessages(messagesToRender) {
+                
+        const createExpandButtonEventListener = (ebReference) => {
+            
+            ebReference.addEventListener('click', event => {
+                        
+                console.log(`An expandButton was clicked on`)
+                console.log(`The expandButton's id Number was ${ebReference.id}`)
+                //console.log(`The author was ${authorInput.value}`)
+                const mIDNumber = parseInt(ebReference.id)
+                modalBody.innerHTML = messages[mIDNumber].messageText
+                const messageTimeDateDisplay = convertTimeDateStampToStandardDisplay(messages[mIDNumber].timeDateStamp)
+                //messages[0].timeDateStamp
+                modalTitle.innerHTML =  messages[mIDNumber].authorName + "'s " + messageTimeDateDisplay + " Message"
 
-            if (messagesToRender.length > 0) {
+                })
 
-                for (mtrIndex=0;mtrIndex<messagesToRender.length;mtrIndex++) {
-                    renderMessage(messagesToRender[mtrIndex])
-                }
-
-            }
-            else {
-                console.log(`There are no messages to render`)
-            }
         }
-        
+
         function renderMessage(messageToRender) {
             // Generate our html
             const htmlString = messageHTML(messageToRender)
@@ -670,27 +673,32 @@
 
             expandButtons = document.getElementsByClassName('expandButton')
             const expandButton = expandButtons[expandButtons.length-1]
-            expandButton.addEventListener('click', event => {
-                        
-                console.log(`An expandButton was clicked on`)
-                console.log(`The expandButton's id Number was ${expandButton.id}`)
-                //console.log(`The author was ${authorInput.value}`)
-                const mIDNumber = parseInt(expandButton.id)
-                modalBody.innerHTML = messages[mIDNumber].messageText
-                const messageTimeDateDisplay = convertTimeDateStampToStandardDisplay(messages[mIDNumber].timeDateStamp)
-                //messages[0].timeDateStamp
-                modalTitle.innerHTML =  messages[mIDNumber].authorName + "'s " + messageTimeDateDisplay + " Message"
 
+            createExpandButtonEventListener(expandButton)
+
+            if (viewMode != "ALL") {
+                
+                // message.authorName != viewMode 
+                if (messageToRender.authorName != viewMode ) {
+                    // make the current message disappear
+                    messageDisplays = document.getElementsByClassName("messageDisplay")
+                    messageDisplays[messageDisplays.length-1].style = "display:none;"
+                }
+            }    
+        }
+
+        function renderMessages(messagesToRender) {
+
+            if (messagesToRender.length > 0) {
+                
+                messagesToRender.forEach(function(message){
+                    renderMessage(message)
                 })
-                if (viewMode != "ALL") {
-                    
-                    // message.authorName != viewMode 
-                    if (messageToRender.authorName != viewMode ) {
-                        // make the current message disappear
-                        messageDisplays = document.getElementsByClassName("messageDisplay")
-                        messageDisplays[messageDisplays.length-1].style = "display:none;"
-                    }
-                }    
+                
+            }
+            else {
+                console.log(`There are no messages to render`)
+            }
         }
 
         const createAuthorInputEventListener = (aiReference) => {
@@ -708,29 +716,29 @@
                 let authorMessageIndices = []
                 // Determine which messages are from the author who was clicked on
                 // Go through the messages
-                for (i=0;i<messages.length;i++) {
+
+                messages.forEach(function(message){
                     // if the message was from the author
-                    //console.log(`messages.authorName was ${messages.authorName}`)
-
-                    if (messages[i].authorName == aiReference.value) {
+                    if (message.authorName == aiReference.value) {
                         // Add the message number to the list 
-                        authorMessageIndices.push(messages[i].id)
+                        authorMessageIndices.push(message.id)
                     }
-                }
-
+                })
+                
                 // Print the number of messages that were posted by the author
                 console.log(`The number of messages that were posted by the author was ${authorMessageIndices.length}`)
                 // Print the message text for each message that was posted by the author
-                console.log(`The author's messages were:`) 
-                for (m=0;m<authorMessageIndices.length;m++) {
-                    index = authorMessageIndices[m]
-                    console.log(`Message[${index}]: ${messages[index].messageText}`)
-                }
+                console.log(`The author's messages were:`)
 
+                authorMessageIndices.forEach(function(index) {
+                    console.log(`Message[${index}]: ${messages[index].messageText}`)
+                })
+                
                 //Make all authorInputs disappear
                 for (aI=0;aI<authorInputs.length;aI++) {
                     authorInputs[aI].style = "display:none;"
                 }
+                                
                 //Make the authorInput that was clicked on reappear
                 aiReference.style ="display:block;"
 
@@ -739,32 +747,19 @@
                 for (mD=0;mD<messageDisplays.length;mD++) {
                     messageDisplays[mD].style = "display:none;"
                 }    
-                //Make all message displays from the author reappear
-                /*
-                for (md1=0;md1<authorMessageIndices.length;md1++) {
-                    index1 = authorMessageIndices[md1]
-                    const messageIdString = messageDisplays[index1].id
-                    const messageId = parseInt(messageIdString)
-                    console.log(`Message[${index1}] is being tested against messageDisplay[${messageId}`)
-                    if (index1 == messageId) {
-                        console.log(`Message[${index1}] matched messageDisplay[${messageId}`)
-                        messageDisplays[index1].style = "display:block;"
-                    }    
-                    //console.log(`Message[${index}]: ${messages[index].messageText}`)
-                }
-                */
+                
                 //Go through all the messages and make the ones from the author reappear
                 for (mDI=0;mDI<messageDisplays.length;mDI++) {
 
-                    for (mAI=0;mAI<authorMessageIndices.length;mAI++) {
-                        console.log(`Message[${mDI}] is being tested against authorMessageIndices[${mAI}`)
+                    authorMessageIndices.forEach(function(authorMessageIndex){
+                        //console.log(`Message[${mDI}] is being tested against authorMessageIndices[${mAI}`)
                         const messageDisplayId = parseInt(messageDisplays[mDI].id)
-                        if (messageDisplayId == authorMessageIndices[mAI]) {
+                        if (messageDisplayId == authorMessageIndex) {
+                            console.log(`Making messageDisplay ${mDI} reappear`)
                             messageDisplays[mDI].style = "display:block;"
                         }
-
-                    }
-
+                    })
+                    
                 }
 
             })
@@ -781,35 +776,28 @@
             authorInputs = document.getElementsByClassName('authorInput')
 
             if (authorInputs) {
-                console.log(`We have ${authorInputs.length} authorInputs`)
                 
-                /*
-                for (i=0;i<authorInputs.length;i++) {
-                    authorInput = authorInputs[i]
-                    console.log(`author[${i}] was ${authorInput.value}`)
-                }
-                */
                 const authorInput = authorInputs[authorInputs.length-1]
                 createAuthorInputEventListener(authorInput)
-                    
-                
+                               
             }
         }
-        /*
-        modalLaunchButton.addEventListener('click', event => {
 
-            console.log(`Modal Launch Button Press detected`)
-            console.log(`modalBody.innerHTML is ${modalBody.innerHTML}`)
-            if (messages.length > 0) {
-                modalBody.innerHTML = messages[0].messageText
-                const messageTimeDateDisplay = convertTimeDateStampToStandardDisplay(messages[0].timeDateStamp)
-                //messages[0].timeDateStamp
-                modalTitle.innerHTML =  messages[0].authorName + "'s " + messageTimeDateDisplay + " Message" 
+        function renderAuthors(authorsToRender) {
+
+            if (authorsToRender.length > 0) {
+
+                authorsToRender.forEach(function(author){
+                    renderAuthor(author)
+                })    
+
             }
-
-        })
-        */
-
+            else {
+                console.log(`There are no authors to render`)
+            }
+ 
+        }
+        
         messageCreationExpandButton.addEventListener('click', event => {
             //console.log(`messageCreationExpandButton Press detected`)
             
@@ -818,6 +806,11 @@
         })
 
         messageCreationCloseButton.addEventListener('click', event => {
+            messageTextArea.value = mcmMessageTextArea.value
+            authorNameInput.value = mcmAuthorNameInput.value
+        })
+
+        messageCreationXCloseButton.addEventListener('click', event => {
             messageTextArea.value = mcmMessageTextArea.value
             authorNameInput.value = mcmAuthorNameInput.value
         })
@@ -884,26 +877,42 @@
             console.log(`sortableTimeDate is ${sortableTimeDate}`)
             return sortableTimeDate
         }
-
+        
         function doAReverseSort() {
             if (messages.length >=2) {       
                 // resort the message list in reverse order
                 let sortedArrayOfSortableTimeDates = []
         
-                // Extract the timedates from the array of task objects and put them into an array to be 
-                // sorted as well as another array for comparison 
-                for (mIndex=0;mIndex<messages.length;mIndex++) {
-                   
+                // Extract the timedates from the array of task objects and put them
+                // into an array to be sorted as well as another array for comparison
+                                
+                messages.forEach(function(message){
                     // Convert each timedate into a sortable form
-                    const currentSortableTimeDate = convertTimeDateStampIntoSortableTimeDate(messages[mIndex].timeDateStamp,messages[mIndex].id)
+                    const currentSortableTimeDate = convertTimeDateStampIntoSortableTimeDate(message.timeDateStamp,message.id)
                     
                     // Store the timedates
                     sortedArrayOfSortableTimeDates.push(currentSortableTimeDate)
+                })
+                
 
-                }
                 // Sort the timedates
-                sortedArrayOfSortableTimeDates.sort()
-                sortedArrayOfSortableTimeDates.reverse()
+                //sortedArrayOfSortableTimeDates.sort()
+                //sortedArrayOfSortableTimeDates.reverse()
+                
+                //perform reverse sort on timedates
+                // sort by name
+                sortedArrayOfSortableTimeDates.sort(function(firstTimeDate, secondTimeDate) {
+                
+                if (firstTimeDate < secondTimeDate) {
+                    return 1;
+                }
+                if (firstTimeDate > secondTimeDate) {
+                    return -1;
+                }
+
+                // names must be equal
+                return 0;
+                })
 
                 // Create an new reverse sorted array of messages
                 let reverseSortedMessages = new Array()
@@ -1050,9 +1059,6 @@
             }
             
         }
-
-
-
 
         //const createPriorityEventListener = (pbReference) => {
             //pbReference.addEventListener('click', event => {
@@ -1206,11 +1212,7 @@
                 mcmAuthorNameInput.value = null
                 mcmMessageTextArea.placeholder = "Type Message..."
                 mcmAuthorNameInput.placeholder="Type Name..."
-
-                // Hide our error divs
-                //descriptionError.classList.add('d-none')
-                //priorityError.classList.add('d-none')
-
+                
             } else {
                 console.log("Message was invalid")
             }
@@ -1222,35 +1224,31 @@
         createPostMessageButtonEventListener(mcmPostMessageButton)
 
         //messageText, authorName, timeDate
-        let forcedmessage = messageFactory("StarTrek is great!", "Jack Eisenfeld", "16:26:20 Jul 05 2019")
-        messages.push(forcedmessage)
-        renderMessage(forcedmessage)
-        authors.push(forcedmessage.authorName)
-        renderAuthor(forcedmessage.authorName)
-        forcedmessage = messageFactory("StarTrek is awesome!", "Jacutus0fB0rg", "16:46:16 Jul 05 2019")
-        messages.push(forcedmessage)
-        renderMessage(forcedmessage)
-        authors.push(forcedmessage.authorName)
-        renderAuthor(forcedmessage.authorName)
-        forcedmessage = messageFactory("Indeed, your logic is impeccable.", "Spock", "16:52:52 Jul 05 2019")
-        messages.push(forcedmessage)
-        renderMessage(forcedmessage)
-        authors.push(forcedmessage.authorName)
-        renderAuthor(forcedmessage.authorName)
-        forcedmessage = messageFactory('In Star Trek the Next Generation, do you believe that Barclay was responsible for the quantum fissure that caused Worf to shift into other quantum universes in the episode "Parallels"?', "Jack Eisenfeld", "16:55:55 Jul 05 2019")
-        messages.push(forcedmessage)
-        renderMessage(forcedmessage)
-        forcedmessage = messageFactory(`Yes I do. When Barclay was affected by the Cytherian probe, he evolved to where he created a "neural scan interface" with the Enterprise's computer thus becoming and answering as the Enterprise's computer and then he controlled the warp engines to "manipulate sub-space in a way that's never been conceived before" propelling the Enterprise to the home planet of the Cytherians.  Both this incident and the path of Worf's shuttle in "Parallels" took place near the Argus array so I that's why I believe the two are linked.  In manipulating sub-space, Barclay must have damaged or changed  the space in that region so that is was in a state of quantum instability.`, "Jacutus0fB0rg", "16:57:25 Jul 05 2019")
-        messages.push(forcedmessage)
-        renderMessage(forcedmessage)
-        forcedmessage = messageFactory(`Let's see what's out there. Engage!`, "Jean-Luc Picard", "17:55:29 Jul 06 2019")
-        messages.push(forcedmessage)
-        renderMessage(forcedmessage)
-        authors.push(forcedmessage.authorName)
-        renderAuthor(forcedmessage.authorName)
-        forcedmessage = messageFactory(`Live long and prosper.`, "Spock", "22:15:38 Jul 06 2019")
-        messages.push(forcedmessage)
-        renderMessage(forcedmessage)
+        
+        messages[0] = messageFactory("StarTrek is great!", "Jack Eisenfeld", "16:26:20 Jul 05 2019")
+        messages[1] = messageFactory("StarTrek is awesome!", "Jacutus0fB0rg", "16:46:16 Jul 05 2019")
+        messages[2] = messageFactory("Indeed, your logic is impeccable.", "Spock", "16:52:52 Jul 05 2019")
+        messages[3] = messageFactory('In Star Trek the Next Generation, do you believe that Barclay was responsible for the quantum fissure that caused Worf to shift into other quantum universes in the episode "Parallels"?', "Jack Eisenfeld", "16:55:55 Jul 05 2019")
+        messages[4] = messageFactory(`Yes I do. When Barclay was affected by the Cytherian probe, he evolved to where he created a "neural scan interface" with the Enterprise's computer thus becoming and answering as the Enterprise's computer and then he controlled the warp engines to "manipulate sub-space in a way that's never been conceived before" propelling the Enterprise to the home planet of the Cytherians.  Both this incident and the path of Worf's shuttle in "Parallels" took place near the Argus array so I that's why I believe the two are linked.  In manipulating sub-space, Barclay must have damaged or changed  the space in that region so that is was in a state of quantum instability.`, "Jacutus0fB0rg", "16:57:25 Jul 05 2019")
+        messages[5] = messageFactory(`Let's see what's out there. Engage!`, "Jean-Luc Picard", "17:55:29 Jul 06 2019")
+        messages[6] = messageFactory(`Live long and prosper.`, "Spock", "22:15:38 Jul 06 2019")
+
+        renderMessages(messages)
+
+        authors[0] = "Jack Eisenfeld"
+        authors[1] = "Jacutus0fB0rg"
+        authors[2] = "Spock"
+        authors[3] = "Jean-Luc Picard"
+
+        renderAuthors(authors)
+
+        //To have reverse sort be set on startup
+        // First set sortmode to reverse
+        // sortMode = "REVERSE"
+        // Second do a reverse sort on the messages
+        // const forcedsortedmessages = doAReverseSort()
+        // Third render the messages
+        // renderMessages(forcedsortedmessages)
 
     </script>
   </body>
