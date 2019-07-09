@@ -9,12 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- Pikaday Date Picker -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/6c33f441b5.js"></script>
-
+    
     <link rel="stylesheet" href="sj25_styles.css"> 
 
     <style>
@@ -473,8 +468,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-
+    
     <!-- Optional JavaScript -->
     <script>
         console.log("Javascript is working!")
@@ -682,7 +676,8 @@
                 if (messageToRender.authorName != viewMode ) {
                     // make the current message disappear
                     messageDisplays = document.getElementsByClassName("messageDisplay")
-                    messageDisplays[messageDisplays.length-1].style = "display:none;"
+                    //messageDisplays[messageDisplays.length-1].style = "display:none;"
+                    messageDisplays[messageDisplays.length-1].classList.add('d-none')
                 }
             }    
         }
@@ -736,16 +731,19 @@
                 
                 //Make all authorInputs disappear
                 for (aI=0;aI<authorInputs.length;aI++) {
-                    authorInputs[aI].style = "display:none;"
+                    //authorInputs[aI].style = "display:none;"
+                    authorInputs[aI].classList.add('d-none')
                 }
                                 
                 //Make the authorInput that was clicked on reappear
-                aiReference.style ="display:block;"
+                //aiReference.style ="display:block;"
+                aiReference.classList.remove('d-none')
 
                 messageDisplays = document.getElementsByClassName("messageDisplay")
                 //Make all message displays disappear
                 for (mD=0;mD<messageDisplays.length;mD++) {
-                    messageDisplays[mD].style = "display:none;"
+                    //messageDisplays[mD].style = "display:none;"
+                    messageDisplays[mD].classList.add('d-none')
                 }    
                 
                 //Go through all the messages and make the ones from the author reappear
@@ -756,7 +754,8 @@
                         const messageDisplayId = parseInt(messageDisplays[mDI].id)
                         if (messageDisplayId == authorMessageIndex) {
                             console.log(`Making messageDisplay ${mDI} reappear`)
-                            messageDisplays[mDI].style = "display:block;"
+                            //messageDisplays[mDI].style = "display:block;"
+                            messageDisplays[mDI].classList.remove('d-none')
                         }
                     })
                     
@@ -1018,11 +1017,13 @@
             //messageDisplays 
             //Make all authorInputs appear
             for (aI=0;aI<authorInputs.length;aI++) {
-                authorInputs[aI].style = "display:block;"
+                //authorInputs[aI].style = "display:block;"
+                authorInputs[aI].classList.remove('d-none')
             }
-            //Make all authorInputs appear
+            //Make all messageDisplays appear
             for (mD=0;mD<messageDisplays.length;mD++) {
-                messageDisplays[mD].style = "display:block;"
+                //messageDisplays[mD].style = "display:block;"
+                messageDisplays[mD].classList.remove('d-none')
             }
 
             viewMode = "ALL"
@@ -1054,7 +1055,9 @@
                 // message.authorName != viewMode 
                 if (targetAuthorName != viewMode ) {
                     authorInputs = document.getElementsByClassName('authorInput')
-                    authorInputs[authorInputs.length-1].style = "display:none;"                   
+                    // Make authorInput disappear
+                    //authorInputs[authorInputs.length-1].style = "display:none;" 
+                    authorInputs[authorInputs.length-1].classList.add('d-none')                  
                 }
             }
             
@@ -1189,18 +1192,6 @@
                     console.log('There are no authors on the list.')
                     console.log(`Message author ${message.authorName} was added to the list.`)
                 }
-
-                /*
-                if (viewMode != "ALL") {
-                    
-                    // message.authorName != viewMode 
-                    if (message.authorName != viewMode ) {
-                        // make the current message disappear
-                        messageDisplays = document.getElementsByClassName("messageDisplay")
-                        messageDisplays[messageDisplays.length-1].style = "display:none;"
-                    }
-                }
-                */
 
                 // Reset form elements
                 messageTextArea.value = null

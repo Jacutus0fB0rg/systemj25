@@ -207,7 +207,7 @@
 
   .btn-primary {
     border-radius: 25pt 25pt 25pt 25pt;
-    background: purple;
+    background: rgb(0, 110, 255);
     color: black;
   }
   .btn-primary:hover {
